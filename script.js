@@ -205,15 +205,28 @@ const FINE = window.matchMedia('(pointer:fine)').matches;
         }
       }
       const p=pts[i];
-      const dm=Math.hypot(p.x-mouse.x,p.y-mouse.y);
-      const near=dm<170;
+            const dm=Math.hypot(p.x-mouse.x,p.y-mouse.y);
+      const RADIUS=220;
+      const near=dm<RADIUS;
       if(near){
-        ctx.strokeStyle=`rgba(79,195,240,${(1-dm/170)*.5})`;
-        ctx.lineWidth=.8;
+        const k=1-dm/RADIUS;
+        ctx.strokeStyle=`rgba(79,195,240,${(k*.9).toFixed(2)})`;
+        ctx.lineWidth=1.6*k+.4;
         ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+
+        // halo en dos capas (barato, sin shadowBlur)
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r+7*k,0,Math.PI*2);
+        ctx.fillStyle=`rgba(79,195,240,${(k*.22).toFixed(2)})`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r+3*k,0,Math.PI*2);
+        ctx.fillStyle=`rgba(79,195,240,${(k*.4).toFixed(2)})`;
+        ctx.fill();
       }
-      ctx.fillStyle=near?'rgba(255,255,255,.9)':'rgba(79,195,240,.62)';
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=near?'#ffffff':'rgba(79,195,240,.85)';
+      const rr=near?p.r+1.6:p.r+.4;
+      ctx.beginPath(); ctx.arc(p.x,p.y,rr,0,Math.PI*2); ctx.fill();
     }
     requestAnimationFrame(draw);
   }
