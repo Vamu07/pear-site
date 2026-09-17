@@ -608,6 +608,6 @@ body.cursor-lg .cursor-ring{width:62px;height:62px;margin:-31px 0 0 -31px;border
 /* logo grande en el manifiesto */
 .manifiesto-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;}
 @media(max-width:860px){.manifiesto-grid{grid-template-columns:1fr;}}
-.manifiesto-logo{display:flex;justify-content:center;align-items:center;}
-.manifiesto-logo img{width:100%;max-width:340px;opacity:.9;}
+.manifiesto-logo{display:flex;justify-content:center;align-items:flex-start;margin-top:-150px;}
+.manifiesto-logo img{width:100%;max-width:460px;opacity:.9;}
 @media(max-width:860px){.manifiesto-logo{display:none;}}
