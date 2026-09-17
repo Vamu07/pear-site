@@ -611,3 +611,26 @@ body.cursor-lg .cursor-ring{width:62px;height:62px;margin:-31px 0 0 -31px;border
 .manifiesto-logo{display:flex;justify-content:center;align-items:flex-start;margin-top:-150px;}
 .manifiesto-logo img{width:100%;max-width:460px;opacity:.9;}
 @media(max-width:860px){.manifiesto-logo{display:none;}}
+/* formulario "trabaja con nosotros" (calcado del sitio real) */
+.join-title{text-align:center;margin-bottom:34px;}
+.join-title h2{font-size:clamp(20px,2.6vw,26px);color:var(--ink);font-weight:500;}
+.joincard{max-width:820px;margin:0 auto;background:#fff;border-radius:8px;
+  padding:44px 46px;box-shadow:0 30px 70px rgba(0,35,89,.12);}
+@media(max-width:640px){.joincard{padding:32px 24px;}}
+.jrow{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:30px;}
+@media(max-width:560px){.jrow{grid-template-columns:1fr;gap:26px;}}
+.jfield{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line-dark);
+  padding-bottom:10px;transition:border-color .25s;}
+.jfield:focus-within{border-color:var(--pear);}
+.jic{font-size:15px;opacity:.55;flex:none;}
+.jfield input{border:none;outline:none;background:none;width:100%;font-size:15px;
+  color:var(--ink);font-family:inherit;}
+.jfield input::placeholder{color:var(--soft-dark);}
+.jsubmit{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:10px;}
+.jbtn{background:#F5A623;color:#fff;font-weight:700;font-size:14px;letter-spacing:.03em;
+  padding:16px 44px;border:none;border-radius:6px;text-transform:uppercase;
+  box-shadow:0 14px 30px rgba(245,166,35,.35);transition:transform .25s var(--ease),background .25s;}
+.jbtn:hover{background:#e6941a;transform:translateY(-2px);}
+.jcheck{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--soft-dark);}
+.jcheck input{accent-color:var(--pear);width:15px;height:15px;}
+.jcheck a{color:var(--pear);text-decoration:underline;}

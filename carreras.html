@@ -39,9 +39,37 @@
 </section>
 
 <main><section class="sec"><div class="wrap">
-  <div class="joinbox reveal">
-    <div><h3>¡Queremos conocerte!</h3><p>Envía tu hoja de vida y un especialista de Talento Humano se pondrá en contacto contigo.</p></div>
-    <a class="btn-primary magnetic" href="contacto.html">Postularme ahora</a>
+  <div class="join-title reveal"><h2>Regístrate en el siguiente formulario:</h2></div>
+  <div class="joincard reveal">
+    <form onsubmit="return false;">
+      <div class="jrow">
+        <div class="jfield">
+          <span class="jic">👤</span>
+          <input type="text" placeholder="Nombre" required>
+        </div>
+        <div class="jfield">
+          <span class="jic">✉</span>
+          <input type="email" placeholder="Email:" required>
+        </div>
+      </div>
+      <div class="jrow">
+        <div class="jfield">
+          <span class="jic">📞</span>
+          <input type="tel" placeholder="Teléfono">
+        </div>
+        <div class="jfield">
+          <span class="jic">💬</span>
+          <input type="text" placeholder="Mensaje">
+        </div>
+      </div>
+      <div class="jsubmit">
+        <button type="submit" class="jbtn magnetic">Registrar aquí</button>
+        <label class="jcheck">
+          <input type="checkbox" checked>
+          Acepto la <a href="#">política de privacidad</a>
+        </label>
+      </div>
+    </form>
   </div>
 </div></section></main>
 <footer>
@@ -71,6 +99,6 @@
     </div>
   </div>
 </footer>
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
