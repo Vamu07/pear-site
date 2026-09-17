@@ -385,9 +385,12 @@ const FINE = window.matchMedia('(pointer:fine)').matches;
         `Para una operación de ${ans.sector||'su organización'} con ${ans.tam||'ese volumen'} de usuarios, ${m.d}`;
       document.getElementById('resChips').innerHTML=m.c.map(x=>`<span>${x}</span>`).join('');
       document.getElementById('resProof').innerHTML=PROOF[ans.reto]||PROOF.infra;
-      const link=document.getElementById('resLink');
+            const link=document.getElementById('resLink');
       link.textContent='Hablar con '+m.esp;
       link.href='contacto.html?linea='+encodeURIComponent(m.t)+'&sector='+encodeURIComponent(ans.sector||'');
+      try{
+        localStorage.setItem('pearDiag', JSON.stringify({linea:m.t, sector:ans.sector||''}));
+      }catch(e){}
       scan.classList.add('done'); body.classList.add('show');
     },1250);
   }
@@ -535,8 +538,15 @@ const FINE = window.matchMedia('(pointer:fine)').matches;
 
 /* ---------- prefill del formulario desde el diagnóstico ---------- */
 (function(){
-  const p=new URLSearchParams(location.search);
-  const linea=p.get('linea'), sector=p.get('sector');
+  let linea, sector;
+  try{
+    const saved = JSON.parse(localStorage.getItem('pearDiag') || 'null');
+    if(saved){ linea=saved.linea; sector=saved.sector; localStorage.removeItem('pearDiag'); }
+  }catch(e){}
+  if(!linea){
+    const p=new URLSearchParams(location.search);
+    linea=p.get('linea'); sector=p.get('sector');
+  }
   if(!linea) return;
   const sel=document.querySelector('.formcard select');
   if(sel){
